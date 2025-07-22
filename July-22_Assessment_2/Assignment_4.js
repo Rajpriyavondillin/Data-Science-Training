@@ -1,15 +1,15 @@
-MongoDB Assignment: Fitness Center Database
+// MongoDB Assignment: Fitness Center Database
 
-//Database
+// Database
 use FitnessCenterDB
 
-//Collections
+// Creating Collections
 db.createCollection("members")
 db.createCollection("trainers")
 db.createCollection("sessions")
 
-Step 1: Create Collections and Insert Data
-1. Members
+// Step 1: Create Collections and Insert Data
+// 1. Members
 db.members.insertMany([
 { member_id: 1, name: "Anjali Rao", age: 28, gender: "Female", city: "Mumbai",
 membership_type: "Gold" },
@@ -23,14 +23,14 @@ membership_type: "Gold" },
 membership_type: "Silver" }
 ])
 
-2. Trainers
+// 2. Trainers
 db.trainers.insertMany([
   { trainer_id: 101, name: "Ajay Kumar", specialty: "Weight Training", experience: 7 },
   { trainer_id: 102, name: "Swati Nair", specialty: "Cardio", experience: 5 },
   { trainer_id: 103, name: "Imran Qureshi", specialty: "Yoga", experience: 8 }
 ])
 
-3. Sessions
+// 3. Sessions
 db.sessions.insertMany([
 { session_id: 201, member_id: 1, trainer_id: 101, session_type: "Strength",
 duration: 60, date: new Date("2024-08-01") },
@@ -47,22 +47,22 @@ duration: 75, date: new Date("2024-08-05") },
 ])
 
 
-Step 2: Long List of Query Challenges
-Basic Queries
-1. Find all members from Mumbai.
+// Step 2: Long List of Query Challenges
+// Basic Queries
+// 1. Find all members from Mumbai.
 db.members.find({ city: "Mumbai" })
 
-2. List all trainers with experience greater than 6 years.
+// 2. List all trainers with experience greater than 6 years.
 db.trainers.find({ experience: { $gt: 6 } })
 
-3. Get all Yoga sessions.
+// 3. Get all Yoga sessions.
 db.sessions.find({ session_type: "Yoga" })
 
-4. Show all sessions conducted by trainer Swati Nair.
+// 4. Show all sessions conducted by trainer Swati Nair.
 const trainer = db.trainers.findOne({ name: "Swati Nair" });
 db.sessions.find({ trainer_id: trainer.trainer_id })
 
-5. Find all members who attended a session on 2024-08-05.
+// 5. Find all members who attended a session on 2024-08-05.
 db.sessions.aggregate([
   { $match: { date: new Date("2024-08-05") } },
   {
@@ -79,18 +79,18 @@ db.sessions.aggregate([
 
 
 
-Intermediate Queries
-6. Count the number of sessions each member has attended.
+// Intermediate Queries
+// 6. Count the number of sessions each member has attended.
 db.sessions.aggregate([
   { $group: { _id: "$member_id", session_count: { $sum: 1 } } }
 ])
 
-7. Show average duration of sessions for each session_type.
+// 7. Show average duration of sessions for each session_type.
 db.sessions.aggregate([
   { $group: { _id: "$session_type", avg_duration: { $avg: "$duration" } } }
 ])
 
-8. Find all female members who attended a session longer than 60 minutes.
+// 8. Find all female members who attended a session longer than 60 minutes.
 db.sessions.aggregate([
   { $match: { duration: { $gt: 60 } } },
   {
@@ -106,10 +106,10 @@ db.sessions.aggregate([
   { $project: { _id: 0, "member.name": 1, duration: 1 } }
 ])
 
-9. Display sessions sorted by duration (descending).
+// 9. Display sessions sorted by duration (descending).
 db.sessions.find().sort({ duration: -1 })
 
-10. Find members who have attended sessions with more than one trainer.
+// 10. Find members who have attended sessions with more than one trainer.
 db.sessions.aggregate([
   { $group: { _id: "$member_id", trainers: { $addToSet: "$trainer_id" } } },
   { $project: { _id: 1, trainer_count: { $size: "$trainers" } } },
@@ -118,8 +118,8 @@ db.sessions.aggregate([
 
 
 
-Advanced Queries with Aggregation & Lookup
-11. Use $lookup to display sessions with member name and trainer name.
+// Advanced Queries with Aggregation & Lookup
+// 11. Use $lookup to display sessions with member name and trainer name.
 db.sessions.aggregate([
   {
     $lookup: {
@@ -150,42 +150,42 @@ db.sessions.aggregate([
   }
 ])
 
-12. Calculate total session time per trainer.
+// 12. Calculate total session time per trainer.
 db.sessions.aggregate([
   { $group: { _id: "$trainer_id", total_time: { $sum: "$duration" } } }
 ])
 
-13. List each member and their total time spent in the gym.
+// 13. List each member and their total time spent in the gym.
 db.sessions.aggregate([
   { $group: { _id: "$member_id", total_time: { $sum: "$duration" } } }
 ])
 
-14. Count how many sessions each trainer has conducted.
+// 14. Count how many sessions each trainer has conducted.
 db.sessions.aggregate([
   { $group: { _id: "$trainer_id", session_count: { $sum: 1 } } }
 ])
 
-15. Find which trainer has conducted the longest average session duration.
+// 15. Find which trainer has conducted the longest average session duration.
 db.sessions.aggregate([
   { $group: { _id: "$trainer_id", avg_duration: { $avg: "$duration" } } },
   { $sort: { avg_duration: -1 } },
   { $limit: 1 }
 ])
 
-16. Show how many unique members each trainer has trained.
+// 16. Show how many unique members each trainer has trained.
 db.sessions.aggregate([
   { $group: { _id: "$trainer_id", unique_members: { $addToSet: "$member_id" } } },
   { $project: { count: { $size: "$unique_members" } } }
 ])
 
-17. Find the most active member (by total session duration).
+// 17. Find the most active member (by total session duration).
 db.sessions.aggregate([
   { $group: { _id: "$member_id", total_duration: { $sum: "$duration" } } },
   { $sort: { total_duration: -1 } },
   { $limit: 1 }
 ])
 
-18. List all Gold membership members who took at least one Strength session.
+// 18. List all Gold membership members who took at least one Strength session.
 db.sessions.aggregate([
   { $match: { session_type: "Strength" } },
   {
@@ -201,7 +201,7 @@ db.sessions.aggregate([
   { $project: { _id: 0, "member.name": 1 } }
 ])
 
-19. Display a breakdown of sessions by membership type.
+// 19. Display a breakdown of sessions by membership type.
 db.sessions.aggregate([
   {
     $lookup: {
@@ -220,7 +220,7 @@ db.sessions.aggregate([
   }
 ])
 
-20. Find members who have not attended any session yet (hint: simulate later by
+// 20. Find members who have not attended any session yet (hint: simulate later by
 adding a new member).
 db.members.insertOne({ member_id: 6, name: "Raj Verma", age: 29, gender: "Male", city: "Chennai", membership_type: "Platinum" })
 

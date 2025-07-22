@@ -1,37 +1,35 @@
-MongoDB Practical Assignment – Bookstore Management
-Objective:
-Design a MongoDB database for managing a bookstore. You'll create collections, insert
-documents, and write queries to analyze inventory and customer orders.
+// MongoDB Practical Assignment – Bookstore Management
+// Objective:
+// Design a MongoDB database for managing a bookstore. You'll create collections, insert documents, and write queries to analyze inventory and customer orders.
+
+// PART 1: Create Collections
+// Create the following 3 collections in a database named bookstoreDB :
+
+// 1. books
+// Fields:
+// book_id (Number)
+// title (String)
+// author (String)
+// genre (String)
+// price (Number)
+// stock (Number)
 
 
-PART 1: Create Collections
-Create the following 3 collections in a database named bookstoreDB :
-
-1. books
-Fields:
-book_id (Number)
-title (String)
-author (String)
-genre (String)
-price (Number)
-stock (Number)
+// 2. customers
+// Fields:
+// customer_id (Number)
+// name (String)
+// email (String)
+// city (String)
 
 
-2. customers
-Fields:
-customer_id (Number)
-name (String)
-email (String)
-city (String)
-
-
-3. orders
-Fields:
-order_id (Number)
-customer_id (Number)
-book_id (Number)
-order_date (ISODate)
-quantity (Number)
+// 3. orders
+// Fields:
+// order_id (Number)
+// customer_id (Number)
+// book_id (Number)
+// order_date (ISODate)
+// quantity (Number)
 
 //Database
 use bookstoreDB
@@ -41,11 +39,11 @@ db.createCollection("books")
 db.createCollection("customers")
 db.createCollection("orders")
 
-PART 2: Insert Sample Data
-Insert at least:
-5 books (mix of genres and price points)
-5 customers (different cities)
-7 orders (various combinations of books & customers)
+// PART 2: Insert Sample Data
+// Insert at least:
+// 5 books (mix of genres and price points)
+// 5 customers (different cities)
+// 7 orders (various combinations of books & customers)
 
 db.books.insertMany([
   { book_id: 101, title: "The AI Revolution", author: "Ray Kurzweil", genre: "Technology", price: 799, stock: 20 },
@@ -76,21 +74,21 @@ db.orders.insertMany([
 ])
 
 
-PART 3: Write Queries
-Basic Queries:
-1. List all books priced above 500.
+// PART 3: Write Queries
+// Basic Queries:
+// 1. List all books priced above 500.
 db.books.find({ price: { $gt: 500 } })
 
-2. Show all customers from ‘Hyderabad’.
+// 2. Show all customers from ‘Hyderabad’.
 db.customers.find({ city: "Hyderabad" })
 
 
-3. Find all orders placed after January 1, 2023.
+// 3. Find all orders placed after January 1, 2023.
 db.orders.find({ order_date: { $gt: ISODate("2023-01-01") } })
 
 
-Joins via $lookup :
-4. Display order details with customer name and book title.
+// Joins via $lookup :
+// 4. Display order details with customer name and book title.
 db.orders.aggregate([
   {
     $lookup: {
@@ -120,7 +118,7 @@ db.orders.aggregate([
 ])
 
 
-5. Show total quantity ordered for each book.
+// 5. Show total quantity ordered for each book.
 db.orders.aggregate([
   {
     $group: {
@@ -145,7 +143,7 @@ db.orders.aggregate([
 ])
 
 
-6. Show the total number of orders placed by each customer.
+// 6. Show the total number of orders placed by each customer.
 db.orders.aggregate([
   {
     $group: {
@@ -170,8 +168,8 @@ db.orders.aggregate([
 ])
 
 
-Aggregation Queries:
-7. Calculate total revenue generated per book.
+// Aggregation Queries:
+// 7. Calculate total revenue generated per book.
 db.orders.aggregate([
   {
     $lookup: {
@@ -194,7 +192,7 @@ db.orders.aggregate([
 ])
 
 
-8. Find the book with the highest total revenue.
+// 8. Find the book with the highest total revenue.
 db.orders.aggregate([
   {
     $lookup: {
@@ -217,7 +215,7 @@ db.orders.aggregate([
 ])
 
 
-9. List genres and total books sold in each genre.
+// 9. List genres and total books sold in each genre.
 db.orders.aggregate([
   {
     $lookup: {
@@ -237,7 +235,7 @@ db.orders.aggregate([
 ])
 
 
-10. Show customers who ordered more than 2 different books.
+// 10. Show customers who ordered more than 2 different books.
 db.orders.aggregate([
   {
     $group: {

@@ -1,53 +1,51 @@
-MongoDB Assignment – Movie Streaming App
+// MongoDB Assignment – Movie Streaming App
 
-Scenario:
-You're hired as a MongoDB developer for a movie streaming startup. You need to build
-the database to store information about users, movies, and their viewing history.
+// Scenario:
+You're hired as a MongoDB developer for a movie streaming startup. You need to build the database to store information about users, movies, and their viewing history.
 
-PART 1: Create Collections
-Create the following 3 collections:
+// PART 1: Create Collections
+// Create the following 3 collections:
 
-1. users
-Fields:
-user_id (Number)
-name (String)
-email (String)
-country (String)
+// 1. users
+// Fields:
+// user_id (Number)
+// name (String)
+// email (String)
+// country (String)
 
-2. movies
-Fields:
-movie_id (Number)
-title (String)
-genre (String)
-release_year (Number)
-duration (Number in minutes)
+// 2. movies
+// Fields:
+// movie_id (Number)
+// title (String)
+// genre (String)
+// release_year (Number)
+// duration (Number in minutes)
 
-3. watch_history
-Fields:
-watch_id (Number)
-user_id (Number)
-movie_id (Number)
-watched_on (Date)
-watch_time (Number in minutes)
+// 3. watch_history
+// Fields:
+// watch_id (Number)
+// user_id (Number)
+// movie_id (Number)
+// watched_on (Date)
+// watch_time (Number in minutes)
 
 //Database
 use movieStreamingDB
 
+// Creating collections
 //users
 db.createCollection("users")
-
 //movies
 db.createCollection("movies")
-
 //watch_history
 db.createCollection("watch_history")
 
 
-PART 2: Insert Sample Data
-Insert:
-5 users (from various countries)
-6 movies (from different genres)
-8 watch_history entries (some users watch the same movie multiple times)
+// PART 2: Insert Sample Data
+// Insert:
+// 5 users (from various countries)
+// 6 movies (from different genres)
+// 8 watch_history entries (some users watch the same movie multiple times)
 
 
 db.users.insertMany([
@@ -81,21 +79,20 @@ db.watch_history.insertMany([
 ])
 
 
-PART 3: Query Tasks
-Basic:
-1. Find all movies with duration > 100 minutes.
+// PART 3: Query Tasks
+// Basic:
+// 1. Find all movies with duration > 100 minutes.
 db.movies.find({ duration: { $gt: 100 } })
 
-2. List users from 'India'.
+// 2. List users from 'India'.
 db.users.find({ country: "India" })
 
-3. Get all movies released after 2020.
+// 3. Get all movies released after 2020.
 db.movies.find({ release_year: { $gt: 2020 } })
 
 
-
-Intermediate:
-4. Show full watch history: user name, movie title, watch time
+// Intermediate:
+// 4. Show full watch history: user name, movie title, watch time
 db.watch_history.aggregate([
   {
     $lookup: {
@@ -126,7 +123,7 @@ db.watch_history.aggregate([
 ])
 
 
-5. List each genre and number of times movies in that genre were watched
+// 5. List each genre and number of times movies in that genre were watched
 db.watch_history.aggregate([
   {
     $lookup: {
@@ -146,7 +143,7 @@ db.watch_history.aggregate([
 ])
 
 
-6. Display total watch time per user
+// 6. Display total watch time per user
 db.watch_history.aggregate([
   {
     $group: {
@@ -172,8 +169,8 @@ db.watch_history.aggregate([
   }
 ])
 
-Advanced:
-7. Find which movie has been watched the most (by count).
+// Advanced:
+// 7. Find which movie has been watched the most (by count).
 db.watch_history.aggregate([
   {
     $group: {
@@ -200,7 +197,7 @@ db.watch_history.aggregate([
   }
 ])
 
-8. Identify users who have watched more than 2 movies.
+// 8. Identify users who have watched more than 2 movies.
 db.watch_history.aggregate([
   {
     $group: {
@@ -231,7 +228,7 @@ db.watch_history.aggregate([
   }
 ])
 
-9. Show users who watched the same movie more than once.
+// 9. Show users who watched the same movie more than once.
 db.watch_history.aggregate([
   {
     $group: {
@@ -267,7 +264,7 @@ db.watch_history.aggregate([
   }
 ])
 
-10. Calculate percentage of each movie watched compared to its full duration
+// 10. Calculate percentage of each movie watched compared to its full duration
 ( watch_time/duration * 100 ).
 db.watch_history.aggregate([
   {
