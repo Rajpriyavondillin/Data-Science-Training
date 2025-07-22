@@ -220,8 +220,7 @@ db.sessions.aggregate([
   }
 ])
 
-// 20. Find members who have not attended any session yet (hint: simulate later by
-adding a new member).
+// 20. Find members who have not attended any session yet (hint: simulate later by adding a new member).
 db.members.insertOne({ member_id: 6, name: "Raj Verma", age: 29, gender: "Male", city: "Chennai", membership_type: "Platinum" })
 
 db.members.aggregate([

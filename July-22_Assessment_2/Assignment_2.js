@@ -1,7 +1,7 @@
 // MongoDB Assignment – Movie Streaming App
 
 // Scenario:
-You're hired as a MongoDB developer for a movie streaming startup. You need to build the database to store information about users, movies, and their viewing history.
+// You're hired as a MongoDB developer for a movie streaming startup. You need to build the database to store information about users, movies, and their viewing history.
 
 // PART 1: Create Collections
 // Create the following 3 collections:
@@ -264,8 +264,7 @@ db.watch_history.aggregate([
   }
 ])
 
-// 10. Calculate percentage of each movie watched compared to its full duration
-( watch_time/duration * 100 ).
+// 10. Calculate percentage of each movie watched compared to its full duration ( watch_time/duration * 100 ).
 db.watch_history.aggregate([
   {
     $lookup: {
