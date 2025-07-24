@@ -23,7 +23,6 @@ db.orders.insertMany([
 // Step 2: Query Challenges
 // Basic Queries
 // 1. List all products in the Electronics category.
-
 db.products.find({category:"Electronics"})
 
 
@@ -213,7 +212,7 @@ db.orders.aggregate([
 
 
 
-/ Advanced Use Cases
+// Advanced Use Cases
 // 16. Add a new customer who hasn't placed any orders. Write a query to list customers without orders (simulate this).
 db.customers.insertOne({name:"Kavya Nair"})
 {

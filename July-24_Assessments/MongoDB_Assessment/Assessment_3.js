@@ -115,8 +115,6 @@ db.jobs.aggregate([
 ])
 
 
-
-
 // Part 4: Data Updates
 // 11. Update the status of one application to "offer made".
 db.applications.updateOne({_id:2},{$set:{application_status:"offer made"}})
@@ -124,7 +122,6 @@ db.applications.updateOne({_id:2},{$set:{application_status:"offer made"}})
 // 12. Delete a job that has not received any applications.
 // Find job_ids with applications
 const appliedJobIds=db.applications.distinct("job_id")
-
 // Delete jobs not in that list
 db.jobs.deleteMany({_id:{$nin:appliedJobIds}})
 

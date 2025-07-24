@@ -11,7 +11,6 @@ db.books.insertMany([
 { book_id: 205, title: "Deep Work", author: "Cal Newport", genre: "Productivity",copies: 4 }
 ])
 
-
 // 2. members
 db.members.insertMany([
 { member_id: 101, name: "Ayesha Khan", joined_on: new Date("2024-01-15") },
@@ -86,7 +85,6 @@ db.members.aggregate([
   }
 ])
 
-
 // 9. Get a list of members who have borrowed books and not returned them.
 db.borrowed.aggregate([
   { $match:{ returned:false}},
@@ -142,7 +140,6 @@ db.books.aggregate([
   {$limit:1}
 ])
 
-
 // 13. List the top 2 most borrowed books.
 db.borrowed.aggregate([
   {$group:{_id:"$book_id",count:{$sum:1}}},
@@ -159,7 +156,6 @@ db.borrowed.aggregate([
   {$unwind:"$book"},
   {$project:{title:"$book.title",count:1}}
 ])
-
 
 // 14. Show the average number of copies available per genre.
 db.books.aggregate([
@@ -186,7 +182,6 @@ db.members.aggregate([
   {$match:{borrowed:{$eq:[]}}}
 ])
 
-
 // 17. Identify books that have never been borrowed.
 db.books.aggregate([
   {
@@ -199,7 +194,6 @@ db.books.aggregate([
   },
   {$match:{borrowed:{$eq:[]}}}
 ])
-
 
 // 18. Get the name of members who borrowed more than one book.
 db.borrowed.aggregate([
@@ -217,7 +211,6 @@ db.borrowed.aggregate([
   {$project:{name:"$member.name",count:1}}
 ])
 
-
 // 19. Display borrowing trends by month (group by date ).
 db.borrowed.aggregate([
   {
@@ -228,7 +221,6 @@ db.borrowed.aggregate([
   },
   {$sort:{_id: 1}}
 ])
-
 
 // 20. Show borrow records where the borrowed book had fewer than 5 copies at the time of borrowing.
 db.borrowed.aggregate([
@@ -253,8 +245,6 @@ db.borrowed.aggregate([
 ])
 
 
-
-
 // Bonus Questions
 // Simulate overdue books by adding a due_date and finding overdue records.
 // Add due_date to borrowed collection
@@ -273,7 +263,6 @@ db.borrowed.find({
   returned:false,
   due_date:{$lt:new Date("2024-07-01")}
 })
-
 
 // Create a chart-style output showing how many books are borrowed per genre.
 db.borrowed.aggregate([
