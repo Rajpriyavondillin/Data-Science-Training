@@ -1,0 +1,11 @@
+product_id,product_name,quantity_in_stock,reorder_level
+1,Laptop,50,10
+2,Mouse,200,30
+3,Keyboard,150,25
+4,Monitor,80,15
+5,Printer,60,10
+6,"USB Cable",315,50
+7,"External HDD",40,5
+8,Webcam,70,20
+9,"Desk Chair",30,10
+10,Router,90,20
