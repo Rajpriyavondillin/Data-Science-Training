@@ -1,0 +1,11 @@
+customer_id,name,contact_info,address
+1,"Anjali Mehta",anjali@example.com,"Mumbai, India"
+2,"Rohit Sharma",rohit@example.com,"Delhi, India"
+3,"Priya Reddy",priya@example.com,"Hyderabad, India"
+4,"Karan Patel",karan@example.com,"Ahmedabad, India"
+5,"Neha Singh",neha@example.com,"Pune, India"
+6,"Amit Verma",amit@example.com,"Chennai, India"
+7,"Sneha Iyer",sneha@example.com,"Bangalore, India"
+8,"Rajiv Kapoor",rajiv@example.com,"Kolkata, India"
+9,"Divya Nair",divya@example.com,"Kochi, India"
+10,"Manish Jain",manish@example.com,"Jaipur, India"

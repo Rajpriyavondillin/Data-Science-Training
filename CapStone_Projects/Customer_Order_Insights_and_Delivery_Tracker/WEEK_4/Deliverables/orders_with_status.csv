@@ -1,0 +1,11 @@
+order_id,customer_id,product_id,order_date,delivery_date,status,status_id,current_status,updated_at,delay_days,delayed,name,contact_info,address,latest_status,status_update_time
+1,1,101,2025-07-01,2025-07-04,Delivered,1,Delivered,2025-07-04T18:00:00.000Z,0,0,Anjali Mehta,anjali@example.com,"Mumbai, India",Delivered,2025-07-04T18:00:00.000Z
+2,2,102,2025-07-02,2025-07-05,Delivered,2,Delivered,2025-07-05T17:30:00.000Z,0,0,Rohit Sharma,rohit@example.com,"Delhi, India",Delivered,2025-07-05T17:30:00.000Z
+3,3,103,2025-07-03,2025-07-06,Shipped,3,Shipped,2025-07-06T12:45:00.000Z,0,0,Priya Reddy,priya@example.com,"Hyderabad, India",Shipped,2025-07-06T12:45:00.000Z
+4,4,104,2025-07-04,2025-07-07,Processing,4,Processing,2025-07-07T10:15:00.000Z,0,0,Karan Patel,karan@example.com,"Ahmedabad, India",Processing,2025-07-07T10:15:00.000Z
+5,5,105,2025-07-05,2025-07-09,Cancelled,5,Cancelled,2025-07-08T09:00:00.000Z,-1,0,Neha Singh,neha@example.com,"Pune, India",Cancelled,2025-07-08T09:00:00.000Z
+6,6,106,2025-07-06,2025-07-10,Delivered,6,Delivered,2025-07-10T19:10:00.000Z,0,0,Amit Verma,amit@example.com,"Chennai, India",Delivered,2025-07-10T19:10:00.000Z
+7,7,107,2025-07-07,2025-07-11,Shipped,7,Shipped,2025-07-11T13:20:00.000Z,0,0,Sneha Iyer,sneha@example.com,"Bangalore, India",Shipped,2025-07-11T13:20:00.000Z
+8,8,108,2025-07-08,2025-07-12,Delivered,8,Delivered,2025-07-12T20:30:00.000Z,0,0,Rajiv Kapoor,rajiv@example.com,"Kolkata, India",Delivered,2025-07-12T20:30:00.000Z
+9,9,109,2025-07-09,2025-07-13,Processing,9,Processing,2025-07-13T11:50:00.000Z,0,0,Divya Nair,divya@example.com,"Kochi, India",Processing,2025-07-13T11:50:00.000Z
+10,10,110,2025-07-10,2025-07-14,Delivered,10,Delivered,2025-07-14T16:40:00.000Z,0,0,Manish Jain,manish@example.com,"Jaipur, India",Delivered,2025-07-14T16:40:00.000Z
