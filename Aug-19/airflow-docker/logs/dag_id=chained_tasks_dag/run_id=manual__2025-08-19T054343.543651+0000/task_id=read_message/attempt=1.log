@@ -1,0 +1,21 @@
+[2025-08-19T05:51:08.809+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-08-19T05:51:08.884+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: chained_tasks_dag.read_message manual__2025-08-19T05:43:43.543651+00:00 [queued]>
+[2025-08-19T05:51:08.905+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: chained_tasks_dag.read_message manual__2025-08-19T05:43:43.543651+00:00 [queued]>
+[2025-08-19T05:51:08.906+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-08-19T05:51:08.941+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): read_message> on 2025-08-19 05:43:43.543651+00:00
+[2025-08-19T05:51:08.970+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=251) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-08-19T05:51:08.975+0000] {standard_task_runner.py:63} INFO - Started process 253 to run task
+[2025-08-19T05:51:08.973+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'chained_tasks_dag', 'read_message', 'manual__2025-08-19T05:43:43.543651+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/chained_dag.py', '--cfg-path', '/tmp/tmpzc7q8z7w']
+[2025-08-19T05:51:08.980+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask read_message
+[2025-08-19T05:51:09.128+0000] {task_command.py:426} INFO - Running <TaskInstance: chained_tasks_dag.read_message manual__2025-08-19T05:43:43.543651+00:00 [running]> on host 37fc8edea13d
+[2025-08-19T05:51:09.463+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='chained_tasks_dag' AIRFLOW_CTX_TASK_ID='read_message' AIRFLOW_CTX_EXECUTION_DATE='2025-08-19T05:43:43.543651+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-19T05:43:43.543651+00:00'
+[2025-08-19T05:51:09.468+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-08-19T05:51:09.479+0000] {logging_mixin.py:188} INFO - Message from file: Hello, this message flows through tasks!
+[2025-08-19T05:51:09.481+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-08-19T05:51:09.483+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-08-19T05:51:09.508+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=chained_tasks_dag, task_id=read_message, run_id=manual__2025-08-19T05:43:43.543651+00:00, execution_date=20250819T054343, start_date=20250819T055108, end_date=20250819T055109
+[2025-08-19T05:51:09.597+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-08-19T05:51:09.633+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-08-19T05:51:09.637+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

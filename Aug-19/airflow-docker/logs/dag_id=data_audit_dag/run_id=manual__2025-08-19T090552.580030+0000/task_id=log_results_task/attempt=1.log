@@ -1,0 +1,18 @@
+[2025-08-19T09:17:02.715+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-08-19T09:17:02.796+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_audit_dag.log_results_task manual__2025-08-19T09:05:52.580030+00:00 [queued]>
+[2025-08-19T09:17:02.822+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_audit_dag.log_results_task manual__2025-08-19T09:05:52.580030+00:00 [queued]>
+[2025-08-19T09:17:02.824+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-08-19T09:17:02.882+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): log_results_task> on 2025-08-19 09:05:52.580030+00:00
+[2025-08-19T09:17:02.947+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=2104) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-08-19T09:17:02.955+0000] {standard_task_runner.py:63} INFO - Started process 2110 to run task
+[2025-08-19T09:17:02.948+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'data_audit_dag', 'log_results_task', 'manual__2025-08-19T09:05:52.580030+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/data_audit_dag.py', '--cfg-path', '/tmp/tmpj505gffe']
+[2025-08-19T09:17:02.960+0000] {standard_task_runner.py:91} INFO - Job 28: Subtask log_results_task
+[2025-08-19T09:17:04.591+0000] {task_command.py:426} INFO - Running <TaskInstance: data_audit_dag.log_results_task manual__2025-08-19T09:05:52.580030+00:00 [running]> on host 37fc8edea13d
+[2025-08-19T09:17:14.978+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 28 for task log_results_task ((psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 2110)
+[2025-08-19T09:17:28.493+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-08-19T09:17:28.640+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-08-19T09:17:28.645+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

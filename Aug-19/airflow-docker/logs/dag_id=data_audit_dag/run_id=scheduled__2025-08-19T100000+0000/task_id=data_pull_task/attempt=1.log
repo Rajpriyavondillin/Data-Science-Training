@@ -1,0 +1,21 @@
+[2025-08-19T11:00:14.161+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-08-19T11:00:14.210+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_audit_dag.data_pull_task scheduled__2025-08-19T10:00:00+00:00 [queued]>
+[2025-08-19T11:00:14.223+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_audit_dag.data_pull_task scheduled__2025-08-19T10:00:00+00:00 [queued]>
+[2025-08-19T11:00:14.224+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-08-19T11:00:14.249+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): data_pull_task> on 2025-08-19 10:00:00+00:00
+[2025-08-19T11:00:14.273+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=969) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-08-19T11:00:14.277+0000] {standard_task_runner.py:63} INFO - Started process 971 to run task
+[2025-08-19T11:00:14.274+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'data_audit_dag', 'data_pull_task', 'scheduled__2025-08-19T10:00:00+00:00', '--job-id', '58', '--raw', '--subdir', 'DAGS_FOLDER/Assessment_2/data_audit_dag.py', '--cfg-path', '/tmp/tmpo9xaseke']
+[2025-08-19T11:00:14.279+0000] {standard_task_runner.py:91} INFO - Job 58: Subtask data_pull_task
+[2025-08-19T11:00:14.390+0000] {task_command.py:426} INFO - Running <TaskInstance: data_audit_dag.data_pull_task scheduled__2025-08-19T10:00:00+00:00 [running]> on host 37fc8edea13d
+[2025-08-19T11:00:14.579+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='youremail@example.com' AIRFLOW_CTX_DAG_OWNER='rajpriya' AIRFLOW_CTX_DAG_ID='data_audit_dag' AIRFLOW_CTX_TASK_ID='data_pull_task' AIRFLOW_CTX_EXECUTION_DATE='2025-08-19T10:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-08-19T10:00:00+00:00'
+[2025-08-19T11:00:14.583+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-08-19T11:00:14.585+0000] {logging_mixin.py:188} INFO - [Pull] Pulled Data: {'user_id': 101, 'balance': 946, 'timestamp': '2025-08-19 11:00:14.585054'}
+[2025-08-19T11:00:14.586+0000] {python.py:237} INFO - Done. Returned value was: {'user_id': 101, 'balance': 946, 'timestamp': '2025-08-19 11:00:14.585054'}
+[2025-08-19T11:00:14.587+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-08-19T11:00:14.630+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=data_audit_dag, task_id=data_pull_task, run_id=scheduled__2025-08-19T10:00:00+00:00, execution_date=20250819T100000, start_date=20250819T110014, end_date=20250819T110014
+[2025-08-19T11:00:14.694+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-08-19T11:00:14.741+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-08-19T11:00:14.744+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
