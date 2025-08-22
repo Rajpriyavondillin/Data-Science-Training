@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+
+- script: |
+    pip install pandas numpy pyspark requests pymongo mysql-connector-python papermill -q
+  displayName: 'Install Dependencies'
+
+- script: |
+    papermill Week5_SupplyChain_Pipeline.ipynb Week5_SupplyChain_Pipeline_Output.ipynb
+  displayName: 'Run Notebook'
+
+- script: |
+    echo "Pipeline executed successfully"
+  displayName: 'Success Message'

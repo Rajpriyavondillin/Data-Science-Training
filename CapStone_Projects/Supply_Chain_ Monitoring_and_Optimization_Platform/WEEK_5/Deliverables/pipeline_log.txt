@@ -1,0 +1,32 @@
+Top Delayed Orders:
+order_id
+1     1
+2     1
+3     1
+4     1
+5     1
+6     1
+7     1
+8     1
+9     1
+10    1
+Name: delayed, dtype: int64
+
+Low Stock Items:
+Empty DataFrame
+Columns: [product_id, product_name, stock_qty, reorder_level]
+Index: []
+
+Delays by Supplier:
+supplier_id
+1     1
+2     1
+3     1
+4     1
+5     1
+6     1
+7     1
+8     1
+9     1
+10    1
+Name: delayed, dtype: int64
