@@ -15,8 +15,8 @@ steps:
   displayName: 'Install Dependencies'
 
 - script: |
-    papermill Week5_SupplyChain_Pipeline.ipynb Week5_SupplyChain_Pipeline_Output.ipynb
-  displayName: 'Run Notebook'
+    papermill SupplyChain_Pipeline.ipynb SupplyChain_Pipeline_Output.ipynb
+  displayName: 'Run SupplyChain_Pipeline Notebook'
 
 - script: |
     echo "Pipeline executed successfully"
